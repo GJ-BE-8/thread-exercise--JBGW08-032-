@@ -51,7 +51,7 @@ public class CounterThread extends  Thread{
         do {
             try{
                 Thread.sleep(1000);
-            }catch (InterruptedException e){.
+            }catch (InterruptedException e){
                 e.printStackTrace();
             }
 
