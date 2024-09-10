@@ -59,7 +59,6 @@ public class Counter {
              */
             log.info("thread:{}, count{}", Thread.currentThread().getName(), this.count );
 
-
         }while (count<countMaxSize);
     }
 }
