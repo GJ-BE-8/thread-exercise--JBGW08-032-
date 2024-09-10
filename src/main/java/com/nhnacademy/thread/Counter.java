@@ -60,6 +60,8 @@ public class Counter {
             log.info("thread:{}, count{}", Thread.currentThread().getName(), this.count );
 
 
+            System.out.println(Thread.currentThread().getName()+", "+count);
+
         }while (count<countMaxSize);
     }
 }
