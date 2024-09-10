@@ -55,8 +55,9 @@ public class CounterThread extends  Thread{
                 e.printStackTrace();
             }
 
+            this.count++;
+            log.info("thread:{}, count{}", this.getName(), this.count );
 
-            System.out.println("thread: "+this.getName()+", "+"count: "+this.count++);
 
 
         }while (count<countMaxSize);
