@@ -18,16 +18,19 @@ import java.util.Objects;
 
 @Slf4j
 //TODO#1 CounterThread는 Thread를 상속 합니다.
-public class CounterThread {
+public class CounterThread extends  Thread{
     private final long countMaxSize;
 
     private long count;
 
     public CounterThread(String name, long countMaxSize) {
         //TODO#2 name <-- null 이거나 공백 문자열이면 IllegalArgumentException이 발생 합니다.
-
-        //TODO#3 countMaxSize <=0 이면 IllegalArgumentException이 발생 합니다.
-
+        if(Objects.isNull(name) || name.isBlank()){
+            throw new IllegalArgumentException();
+        } //TODO#3 countMaxSize <=0 이면 IllegalArgumentException이 발생 합니다.
+        else if(countMaxSize <=0){
+            throw new IllegalArgumentException();
+        }
 
         this.setName(name);
         this.countMaxSize = countMaxSize;
@@ -46,6 +49,15 @@ public class CounterThread {
          */
 
         do {
+            try{
+                Thread.sleep(1000);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+
+
+            System.out.println("thread: "+this.getName()+", "+"count: "+this.count++);
+
 
         }while (count<countMaxSize);
     }
